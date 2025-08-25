@@ -9,18 +9,23 @@ class CheckoutButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(
-            Colors.blue,
-          ),
-        ),
         onPressed: () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (_) => const PaymentScreen()),
           );
         },
-        child: const Text("Continue to Payment"),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Theme.of(context).colorScheme.primary,
+          foregroundColor: Theme.of(context).colorScheme.onPrimary,
+        ),
+        child: Text(
+          "Continue to Payment",
+          style: TextStyle(
+            color:
+                Theme.of(context).textTheme.bodyMedium?.color ?? Colors.white,
+          ),
+        ),
       ),
     );
   }

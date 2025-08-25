@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CourseItem extends StatelessWidget {
   final Map<String, dynamic> course;
   const CourseItem({super.key, required this.course});
@@ -38,11 +37,7 @@ class CourseItem extends StatelessWidget {
               ),
               Text(
                 "\$${course['price'].toStringAsFixed(2)}",
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
-                ),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -51,5 +46,3 @@ class CourseItem extends StatelessWidget {
     );
   }
 }
-
-

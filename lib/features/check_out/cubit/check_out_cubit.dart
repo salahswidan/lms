@@ -1,10 +1,10 @@
-
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lms/features/cart/data/models/course_model.dart';
 import 'check_out_state.dart';
 
 class CheckoutCubit extends Cubit<CheckoutState> {
-  CheckoutCubit(List<Map<String, dynamic>> courses)
-      : super(CheckoutState(courses: courses, discountPercent: 0));
+  CheckoutCubit(List<CourseModel> courses)
+    : super(CheckoutState(courses: courses, discountPercent: 0));
 
   void applyCoupon(String code) {
     int? percent = int.tryParse(code);

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lms/core/constants/app_router.dart';
 import 'package:lms/core/cubits/course_cubit/course_cubit.dart';
 import 'package:lms/features/courses/domain/entities/course_entity.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../../../core/constants/app_paddings.dart';
 import '../../../../../core/constants/app_text_styles.dart';
@@ -73,6 +74,18 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
                                       style: AppTextStyles.headlineMedium,
                                     ),
                                   ],
+                                ),
+                                Spacer(),
+                                IconButton(
+                                  onPressed: () {
+                                    GoRouter.of(
+                                      context,
+                                    ).push(AppRouter.cartPage);
+                                  },
+                                  icon: Icon(
+                                    PhosphorIcons.shoppingCartSimple(),
+                                    size: 35,
+                                  ),
                                 ),
                               ],
                             ),

@@ -6,15 +6,15 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9FB),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         title: Text(
           "Profile",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF1E293B),
+            color:
+                Theme.of(context).textTheme.bodyMedium?.color ?? Colors.white,
           ),
         ),
         centerTitle: true,
@@ -27,17 +27,24 @@ class ProfileView extends StatelessWidget {
               backgroundImage: AssetImage('assets/images/personal-image.png'),
             ),
             const SizedBox(height: 12),
-            const Text(
+            Text(
               'Ahmed Elhalabi',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1E293B),
+                color:
+                    Theme.of(context).textTheme.bodyMedium?.color ??
+                    Colors.white,
               ),
             ),
-            const Text(
+            Text(
               'Student',
-              style: TextStyle(fontSize: 16, color: Color(0xFF64748B)),
+              style: TextStyle(
+                fontSize: 16,
+                color:
+                    Theme.of(context).textTheme.bodyMedium?.color ??
+                    Colors.white,
+              ),
             ),
             const SizedBox(height: 20),
             Padding(
@@ -70,10 +77,11 @@ class _StatItem extends StatelessWidget {
       children: [
         Text(
           value,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF1E293B),
+            color:
+                Theme.of(context).textTheme.bodyMedium?.color ?? Colors.white,
           ),
         ),
         Text(

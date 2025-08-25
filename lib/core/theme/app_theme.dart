@@ -9,10 +9,15 @@ class CustomAppTheme {
   );
 
   /// Dark theme
-  static final ColorScheme _darkColorScheme = ColorScheme.fromSwatch(
-    primarySwatch: AppColors.primarySwatch,
-    brightness: Brightness.dark,
-  );
+  static final ColorScheme _darkColorScheme =
+      ColorScheme.fromSwatch(
+        primarySwatch: AppColors.primarySwatch,
+        brightness: Brightness.dark,
+      ).copyWith(
+        surface: Colors.black,
+        onSurface: Colors.white,
+        onPrimary: Colors.white,
+      );
 
   /// Shared text theme
   static const TextTheme _textTheme = TextTheme(
@@ -46,6 +51,21 @@ class CustomAppTheme {
       backgroundColor: _lightColorScheme.primary,
       foregroundColor: _lightColorScheme.onPrimary,
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: _lightColorScheme.primary,
+        foregroundColor: _lightColorScheme.onPrimary,
+      ),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(foregroundColor: _lightColorScheme.primary),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: _lightColorScheme.primary,
+        side: BorderSide(color: _lightColorScheme.primary),
+      ),
+    ),
   );
 
   /// Dark theme
@@ -53,8 +73,8 @@ class CustomAppTheme {
     useMaterial3: true,
     colorScheme: _darkColorScheme,
     textTheme: _textTheme.apply(
-      bodyColor: _darkColorScheme.onSurface,
-      displayColor: _darkColorScheme.onSurface,
+      bodyColor: Colors.white, // make body text white
+      displayColor: Colors.white, // make display text white
     ),
     scaffoldBackgroundColor: _darkColorScheme.surface,
     appBarTheme: AppBarTheme(
@@ -65,6 +85,21 @@ class CustomAppTheme {
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: _darkColorScheme.primary,
       foregroundColor: _darkColorScheme.onPrimary,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: _darkColorScheme.primary,
+        foregroundColor: _darkColorScheme.onPrimary,
+      ),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(foregroundColor: _darkColorScheme.primary),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: _darkColorScheme.primary,
+        side: BorderSide(color: _darkColorScheme.primary),
+      ),
     ),
   );
 }

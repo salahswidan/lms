@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lms/features/cart/data/models/course_model.dart';
+import 'package:lms/features/cart/presentation/widgets/cart_course_card.dart';
 import '../cubit/check_out_cubit.dart';
 import '../cubit/check_out_state.dart';
 import '../widgets/check_out_button.dart';
@@ -15,12 +17,39 @@ class CheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final couponController = TextEditingController();
+    List<CourseModel> courses = [
+      CourseModel(
+        price: 49.99,
+        id: "101",
+        title: "Introduction to Data Science",
+        details:
+            "This course provides a comprehensive introduction to data science, covering essential concepts and techniques.",
+        imageUrl:
+            "https://img.freepik.com/premium-vector/e-learning-online-courses-video-web-banner-thumbnail-design_673898-399.jpg",
+      ),
+      CourseModel(
+        price: 39.99,
+        id: "102",
+        title: "Flutter Development",
+        details:
+            "Learn to build mobile apps with Flutter from scratch using Dart.",
+        imageUrl:
+            "https://img.freepik.com/free-vector/mobile-app-development-illustration_52683-47931.jpg",
+      ),
+    ];
 
     return BlocProvider(
       create: (_) => CheckoutCubit(courses),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Checkout"),
+          title: Text(
+            "Checkout",
+            style: TextStyle(
+              fontSize: 20,
+              color:
+                  Theme.of(context).textTheme.bodyMedium?.color ?? Colors.white,
+            ),
+          ),
           centerTitle: true,
         ),
         body: Padding(
@@ -41,8 +70,13 @@ class CheckoutScreen extends StatelessWidget {
                       separatorBuilder: (context, index) =>
                           const SizedBox(height: 10),
                       itemCount: state.courses.length,
-                      itemBuilder: (context, index) =>
-                          CourseItem(course: state.courses[index]),
+                      itemBuilder: (context, index) => CartCourseCard(
+                        id: courses[index].id,
+                        title: courses[index].title,
+                        details: courses[index].details,
+                        imageUrl: courses[index].imageUrl,
+                        price: courses[index].price.toString(),
+                      ),
                     );
                   },
                 ),

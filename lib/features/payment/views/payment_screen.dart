@@ -20,16 +20,27 @@ class _PaymentScreenState extends State<PaymentScreen> {
       child: BlocConsumer<PaymentCubit, PaymentState>(
         listener: (context, state) {
           if (state is PaymentSuccess) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.message)),
-            );
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text(state.message)));
           }
         },
         builder: (context, state) {
           final cubit = PaymentCubit.of(context);
 
           return Scaffold(
-            appBar: AppBar(title: const Text("Payment"), centerTitle: true),
+            appBar: AppBar(
+              title: Text(
+                "Payment",
+                style: TextStyle(
+                  fontSize: 20,
+                  color:
+                      Theme.of(context).textTheme.bodyMedium?.color ??
+                      Colors.white,
+                ),
+              ),
+              centerTitle: true,
+            ),
             body: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Form(

@@ -1,6 +1,8 @@
 
+import 'package:lms/features/cart/data/models/course_model.dart';
+
 class CheckoutState {
-  final List<Map<String, dynamic>> courses;
+  final List<CourseModel> courses;
   final double discountPercent;
 
   CheckoutState({
@@ -9,12 +11,12 @@ class CheckoutState {
   });
 
   double get totalPrice {
-    double sum = courses.fold(0, (acc, course) => acc + course['price']);
+    double sum = courses.fold(0, (acc, course) => acc + course.price!);
     return sum - (sum * discountPercent);
   }
 
   CheckoutState copyWith({
-    List<Map<String, dynamic>>? courses,
+    List<CourseModel>? courses,
     double? discountPercent,
   }) {
     return CheckoutState(

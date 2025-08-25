@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
 import 'package:lms/core/constants/app_text_styles.dart';
 import 'package:lms/core/cubits/course_cubit/course_cubit.dart';
 import 'package:lms/features/course_details/presentation/cubit/course_details_cubit.dart';
+import 'package:lms/features/course_details/presentation/views/widgets/instructor_info.dart';
+import 'package:lms/features/course_details/presentation/views/widgets/lesson_tile.dart';
+import 'package:lms/features/course_details/presentation/views/widgets/module_tile.dart';
 import 'package:lms/features/courses/domain/entities/course_entity.dart';
 
 class CourseDetailsViewBody extends StatefulWidget {
@@ -92,28 +97,41 @@ class _CourseDetailsViewBodyState extends State<CourseDetailsViewBody> {
                           Text(
                             course!.title,
                             style: AppTextStyles.titleLarge.copyWith(
-                              color: Color(0xFF1E293B),
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium?.color ??
+                                  Colors.white,
                             ),
                           ),
                           const SizedBox(height: 16),
-                          // InstructorInfo(
-                          //   imageUrl:
-                          //       'https://lh3.googleusercontent.com/aida-public/AB6AXuD5u3B2wT-KGtn7JOBfa3zWKxLe-OG8wSQt0IWyUgptlnm_op8vu_BmFm5wDppmzA_k01OFunv5S99lOuLc1vyr4t0bVI8sM5o0ReEvaniJgRh94u0xR77El0NJ8mMjuvPIS9AsHYy7Pv5YnX74pzPt_nr3YVEvF5ynbYOmCD7-Eyk6j60H39_NiRRDhkt7hxESovAJ_MPZqruIx4wzysX_mf-vPMBUpxf_4Mg7RtHHzJX9FqrvqnTrU4MBGHeyP1dlQHJWFzS9gAjJ',
-                          //   name: 'Dr. Evelyn Reed',
-                          //   subtitle: 'Data Science Expert',
-                          // ),
+                          InstructorInfo(
+                            imageUrl:
+                                'https://lh3.googleusercontent.com/aida-public/AB6AXuD5u3B2wT-KGtn7JOBfa3zWKxLe-OG8wSQt0IWyUgptlnm_op8vu_BmFm5wDppmzA_k01OFunv5S99lOuLc1vyr4t0bVI8sM5o0ReEvaniJgRh94u0xR77El0NJ8mMjuvPIS9AsHYy7Pv5YnX74pzPt_nr3YVEvF5ynbYOmCD7-Eyk6j60H39_NiRRDhkt7hxESovAJ_MPZqruIx4wzysX_mf-vPMBUpxf_4Mg7RtHHzJX9FqrvqnTrU4MBGHeyP1dlQHJWFzS9gAjJ',
+                            name: 'Dr. Evelyn Reed',
+                            subtitle: 'Data Science Expert',
+                          ),
                           const SizedBox(height: 16),
                           Text(
                             course!.description,
                             style: AppTextStyles.bodyMedium.copyWith(
-                              color: Color(0xFF64748B),
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium?.color ??
+                                  Colors.white,
                             ),
                           ),
                           const SizedBox(height: 32),
                           Text(
                             'Course Content',
                             style: AppTextStyles.titleLarge.copyWith(
-                              color: Color(0xFF1E293B),
+                              color:
+                                  Theme.of(
+                                    context,
+                                  ).textTheme.bodyMedium?.color ??
+                                  Colors.white,
+
                               fontSize: 18.0,
                             ),
                           ),
@@ -127,33 +145,33 @@ class _CourseDetailsViewBodyState extends State<CourseDetailsViewBody> {
                       itemCount: course!.modules.length,
                       itemBuilder: (context, index) {
                         final module = course!.modules[index];
-                        // return ModuleTile(
-                        //   title: 'Module ${index + 1}: ${module.title}',
-                        //   lessons: List.generate(module.lessons.length, (
-                        //     lessonIndex,
-                        //   ) {
-                        //     final lesson = module.lessons[lessonIndex];
-                        //     return BlocBuilder<
-                        //       CourseDetailsCubit,
-                        //       CourseDetailsState
-                        //     >(
-                        //       builder: (context, state) => GestureDetector(
-                        //         onTap: () => courseDetailsCubit
-                        //             .openYouTubeVideo(lesson.videoUrl),
-                        //         child: LessonTile(
-                        //           toggleComplete: () =>
-                        //               courseDetailsCubit.toggleComplete(lesson),
-                        //           title: lesson.title,
-                        //           subtitle: '${lesson.minutes} min',
-                        //           icon: Icons.play_arrow_rounded,
-                        //           backgroundColor: Color(0xFFE0F2FE),
-                        //           iconColor: Color(0xFF0C77F2),
-                        //           isCompleted: lesson.isCompleted,
-                        //         ),
-                        //       ),
-                        //     );
-                        //   }),
-                        // );
+                        return ModuleTile(
+                          title: 'Module ${index + 1}: ${module.title}',
+                          lessons: List.generate(module.lessons.length, (
+                            lessonIndex,
+                          ) {
+                            final lesson = module.lessons[lessonIndex];
+                            return BlocBuilder<
+                              CourseDetailsCubit,
+                              CourseDetailsState
+                            >(
+                              builder: (context, state) => GestureDetector(
+                                onTap: () => courseDetailsCubit
+                                    .openYouTubeVideo(lesson.videoUrl),
+                                child: LessonTile(
+                                  toggleComplete: () =>
+                                      courseDetailsCubit.toggleComplete(lesson),
+                                  title: lesson.title,
+                                  subtitle: '${lesson.minutes} min',
+                                  icon: Icons.play_arrow_rounded,
+                                  backgroundColor: Color(0xFFE0F2FE),
+                                  iconColor: Color(0xFF0C77F2),
+                                  isCompleted: lesson.isCompleted,
+                                ),
+                              ),
+                            );
+                          }),
+                        );
                       },
                     ),
                   ),

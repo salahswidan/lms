@@ -26,10 +26,11 @@ class OnboardingPageItem extends StatelessWidget {
         const SizedBox(height: 15),
         Text(
           title,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
-            color: Colors.black87,
+            color:
+                Theme.of(context).textTheme.bodyMedium?.color ?? Colors.white,
             overflow: TextOverflow.visible,
           ),
           textAlign: TextAlign.center,

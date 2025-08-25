@@ -85,7 +85,14 @@ class CourseCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Progress", style: TextStyle(color: Colors.grey[600])),
+                    Text(
+                      "Progress",
+                      style: TextStyle(
+                        color:
+                            Theme.of(context).textTheme.bodyMedium?.color ??
+                            Colors.white,
+                      ),
+                    ),
                     Text(
                       "${courseEntity.progress}%",
                       style: TextStyle(

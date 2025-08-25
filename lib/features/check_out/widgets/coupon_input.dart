@@ -23,12 +23,19 @@ class CouponField extends StatelessWidget {
         const SizedBox(width: 10),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
+            backgroundColor: Theme.of(context).colorScheme.primary,
+            foregroundColor: Theme.of(context).colorScheme.onPrimary,
           ),
           onPressed: () {
             context.read<CheckoutCubit>().applyCoupon(controller.text.trim());
           },
-          child: const Text("Apply"),
+          child: Text(
+            "Apply",
+            style: TextStyle(
+              color:
+                  Theme.of(context).textTheme.bodyMedium?.color ?? Colors.white,
+            ),
+          ),
         ),
       ],
     );
