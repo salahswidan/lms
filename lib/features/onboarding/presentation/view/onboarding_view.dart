@@ -10,6 +10,7 @@ class OnBoardingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         actionsPadding: EdgeInsets.symmetric(horizontal: 16),
         actions: [
           TextButton(

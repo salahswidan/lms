@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lms/core/constants/app_router.dart';
 
 import 'package:lms/features/onboarding/data/models/onboard_model.dart';
 import 'package:lms/features/onboarding/presentation/cubit/on_boarding_cubit.dart';
@@ -10,7 +12,6 @@ import 'package:lms/features/onboarding/presentation/widgets/nav_button.dart';
 import 'package:lms/features/onboarding/presentation/widgets/onboarding_page_builder.dart';
 import 'package:lms/features/onboarding/presentation/widgets/onboarding_page_item.dart';
 import 'package:lms/features/onboarding/presentation/widgets/page_indicators.dart';
-import 'package:lms/home_screen.dart';
 
 class OnboardingViewBody extends StatefulWidget {
   const OnboardingViewBody({super.key});
@@ -48,20 +49,11 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: []);
-    _pageController.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocConsumer<OnboardingCubit, OnboardingState>(
       listener: (context, state) {
         if (state is OnboardingCompleted) {
-          Navigator.of(
-            context,
-          ).pushReplacement(MaterialPageRoute(builder: (_) => HomeScreen()));
+          GoRouter.of(context).go(AppRouter.homePage);
         }
       },
       builder: (context, state) {
@@ -94,7 +86,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     itemCount: onboardPages.length,
                     generator: (index) => IndicatorItem(
                       color: state.currentPage == index
-                          ? Color(0xff7f3af5)
+                          ? Theme.of(context).colorScheme.primary
                           : Colors.grey.shade300,
                       width: state.currentPage == index ? 8 : 8,
                     ),
@@ -121,5 +113,12 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
         return const SizedBox.shrink();
       },
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive, overlays: []);
+    _pageController.dispose();
   }
 }

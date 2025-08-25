@@ -1,0 +1,141 @@
+[
+  {
+    "id": "course_001",
+    "title": "Introduction to Data Science",
+    "subtitle": "Taught by Dr. Evelyn Reed",
+    "thumbnailUrl": "https://img.freepik.com/premium-vector/e-learning-online-courses-video-web-banner-thumbnail-design_673898-399.jpg",
+    "description": "This course provides a comprehensive introduction to data science, covering essential concepts and techniques.",
+    "progress": 20.0,
+    "modules": [
+      {
+        "id": "module_1",
+        "title": "Getting Started",
+        "lessons": [
+          {
+            "id": "vid_1",
+            "title": "Introduction to Data Science",
+            "videoUrl": "https://www.youtube.com/",
+            "duration": 12,
+            "isCompleted": true
+          },
+          {
+            "id": "vid_2",
+            "title": "Key Concepts",
+            "videoUrl": "https://www.youtube.com/watch?v=X3paOmcrTjQ",
+            "duration": 8,
+            "isCompleted": false
+          }
+        ]
+      },
+      {
+        "id": "module_2",
+        "title": "Data Analysis",
+        "lessons": [
+          {
+            "id": "vid_3",
+            "title": "Introduction to Data Analysis",
+            "videoUrl": "https://www.youtube.com/watch?v=GCzrbpKzHNg",
+            "duration": 10,
+            "isCompleted": false
+          }
+        ]
+      },
+      {
+        "id": "module_3",
+        "title": "Machine Learning",
+        "lessons": [
+          {
+            "id": "vid_4",
+            "title": "What is Machine Learning?",
+            "videoUrl": "https://www.youtube.com/watch?v=Gv9_4yMHFhI",
+            "duration": 15,
+            "isCompleted": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "course_002",
+    "title": "Mastering Flutter",
+    "subtitle": "Taught by John Smith",
+    "thumbnailUrl": "https://img.freepik.com/free-vector/flat-design-minimal-technology-youtube-thumbnail_23-2149150484.jpg",
+    "description": "Build beautiful native apps using Flutter.",
+    "progress": 30.0,
+    "modules": [
+      {
+        "id": "mod_002",
+        "title": "Basics",
+        "lessons": [
+          {
+            "id": "vid_003",
+            "title": "Flutter Setup",
+            "videoUrl": "https://www.youtube.com/watch?v=fq4N0hgOWzU",
+            "duration": 15,
+            "isCompleted": false
+          },
+          {
+            "id": "vid_004",
+            "title": "Widgets Overview",
+            "videoUrl": "https://www.youtube.com/watch?v=x0uinJvhNxI",
+            "duration": 13,
+            "isCompleted": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "course_003",
+    "title": "JavaScript Essentials",
+    "subtitle": "Taught by Sarah Lee",
+    "thumbnailUrl": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/online-course-youtube-thumbnail-design-template-510d40e9c62f9dd5e580c746b3d07159_screen.jpg?ts=1747678223",
+    "description": "A beginner-friendly JavaScript course.",
+    "progress": 60.0,
+    "modules": [
+      {
+        "id": "mod_003",
+        "title": "Fundamentals",
+        "lessons": [
+          {
+            "id": "vid_005",
+            "title": "Variables and Types",
+            "videoUrl": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
+            "duration": 9,
+            "isCompleted": true
+          },
+          {
+            "id": "vid_006",
+            "title": "Functions",
+            "videoUrl": "https://www.youtube.com/watch?v=PkZNo7MFNFg",
+            "duration": 11,
+            "isCompleted": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "course_004",
+    "title": "Intro to Machine Learning",
+    "subtitle": "Taught by Alan Turing",
+    "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrGEviftUo6xjhcts-P__LV3IbqXZhtMvl5A&s",
+    "description": "Learn about ML concepts, algorithms, and applications.",
+    "progress": 75.0,
+    "modules": [
+      {
+        "id": "mod_004",
+        "title": "Basics",
+        "lessons": [
+          {
+            "id": "vid_007",
+            "title": "Supervised vs Unsupervised",
+            "videoUrl": "https://www.youtube.com/watch?v=Gv9_4yMHFhI",
+            "duration": 14,
+            "isCompleted": false
+          }
+        ]
+      }
+    ]
+  }
+]
