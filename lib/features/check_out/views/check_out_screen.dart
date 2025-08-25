@@ -6,7 +6,6 @@ import '../cubit/check_out_cubit.dart';
 import '../cubit/check_out_state.dart';
 import '../widgets/check_out_button.dart';
 import '../widgets/coupon_input.dart';
-import '../widgets/course_item.dart';
 import '../widgets/total_price.dart';
 
 class CheckoutScreen extends StatelessWidget {
