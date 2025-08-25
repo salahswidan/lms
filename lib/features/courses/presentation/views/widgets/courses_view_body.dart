@@ -66,11 +66,11 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
                                   children: [
                                     Text(
                                       'Welcome back,',
-                                      style: AppTextStyles.body,
+                                      style: AppTextStyles.bodyMedium,
                                     ),
                                     Text(
                                       'Ahmed',
-                                      style: AppTextStyles.headingMedium,
+                                      style: AppTextStyles.headlineMedium,
                                     ),
                                   ],
                                 ),
@@ -79,7 +79,7 @@ class _CoursesViewBodyState extends State<CoursesViewBody> {
                             SizedBox(height: 64.0),
                             Text(
                               'Your Courses',
-                              style: AppTextStyles.headingLarge,
+                              style: AppTextStyles.headlineLarge,
                             ),
                             SizedBox(height: 16.0),
                           ],

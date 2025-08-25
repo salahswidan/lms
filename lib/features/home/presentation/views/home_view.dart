@@ -41,7 +41,7 @@ class HomeView extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           bottomNavigationBar: BottomNavigationBar(
-            selectedLabelStyle: AppTextStyles.label,
+            selectedLabelStyle: AppTextStyles.labelMedium,
             showSelectedLabels: true,
             unselectedItemColor: colorScheme.primary,
             selectedItemColor: colorScheme.primary,

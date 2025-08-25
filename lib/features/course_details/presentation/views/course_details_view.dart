@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:lms/features/course_details/presentation/views/widgets/course_details_view_body.dart';
 
 class CourseDetailsView extends StatelessWidget {

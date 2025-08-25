@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lms/core/constants/app_router.dart';
+import 'package:lms/core/constants/app_strings.dart';
+import 'package:lms/core/constants/assets.dart';
 
 import 'package:lms/features/onboarding/data/models/onboard_model.dart';
 import 'package:lms/features/onboarding/presentation/cubit/on_boarding_cubit.dart';
@@ -24,21 +26,19 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
   final PageController _pageController = PageController();
   final List<OnboardModel> onboardPages = [
     OnboardModel(
-      image: "assets/images/onboarding1.svg",
-      title: "Your Learning Journey Starts Here",
-      description:
-          "Discover structured courses designed to help you grow step by step.",
+      image: Assets.onboardingImagePath1,
+      title: AppStrings.onboardingTitle1,
+      description: AppStrings.onboardingDesc1,
     ),
     OnboardModel(
-      image: "assets/images/onboarding2.svg",
-      title: "Grow With Confidence",
-      description:
-          "Master new skills and unlock opportunities with every lesson.",
+      image: Assets.onboardingImagePath2,
+      title: AppStrings.onboardingTitle2,
+      description: AppStrings.onboardingDesc2,
     ),
     OnboardModel(
-      image: "assets/images/onboarding3.svg",
-      title: "Level Up Your Knowledge",
-      description: "Learn at your own pace and achieve your academic goals.",
+      image: Assets.onboardingImagePath3,
+      title: AppStrings.onboardingTitle3,
+      description: AppStrings.onboardingDesc3,
     ),
   ];
 
@@ -53,7 +53,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
     return BlocConsumer<OnboardingCubit, OnboardingState>(
       listener: (context, state) {
         if (state is OnboardingCompleted) {
-          GoRouter.of(context).go(AppRouter.homePage);
+          GoRouter.of(context).go(AppRouter.loginPage);
         }
       },
       builder: (context, state) {
