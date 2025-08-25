@@ -23,6 +23,22 @@ class HomeView extends StatelessWidget {
         ),
       ),
       BottomNavigationBarItem(
+        icon: Icon(PhosphorIcons.rocketLaunch(), color: colorScheme.primary),
+        label: 'Explore',
+        activeIcon: Icon(
+          PhosphorIconsFill.rocketLaunch,
+          color: colorScheme.primary,
+        ),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(PhosphorIcons.magnifyingGlass(), color: colorScheme.primary),
+        label: 'Search',
+        activeIcon: Icon(
+          PhosphorIconsFill.magnifyingGlass,
+          color: colorScheme.primary,
+        ),
+      ),
+      BottomNavigationBarItem(
         icon: Icon(PhosphorIcons.bookmarkSimple(), color: colorScheme.primary),
         label: 'Favourite',
         activeIcon: Icon(

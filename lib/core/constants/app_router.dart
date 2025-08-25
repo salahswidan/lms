@@ -4,9 +4,11 @@ import 'package:lms/features/auth/presentation/pages/sign_up_page.dart';
 import 'package:lms/features/cart/presentation/views/cart_view.dart';
 import 'package:lms/features/check_out/views/check_out_screen.dart';
 import 'package:lms/features/course_details/presentation/views/course_details_view.dart';
+import 'package:lms/features/explore/presentation/pages/explore_page.dart';
 import 'package:lms/features/home/presentation/views/home_view.dart';
 import 'package:lms/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:lms/features/payment/views/payment_screen.dart';
+import 'package:lms/features/search/presentation/pages/search_page.dart';
 
 class AppRouter {
   static const onboardingPage = '/';
@@ -17,6 +19,8 @@ class AppRouter {
   static const checkoutPage = '/checkout_page';
   static const paymentpage = '/payment_page';
   static const cartPage = '/cart_page';
+  static const explorePage = '/explore_page';
+  static const searchPage = '/search_page';
 
   static final router = GoRouter(
     initialLocation: onboardingPage,
@@ -41,6 +45,8 @@ class AppRouter {
       ),
       GoRoute(path: cartPage, builder: (context, state) => CartView()),
       GoRoute(path: paymentpage, builder: (context, state) => PaymentScreen()),
+      GoRoute(path: explorePage, builder: (context, state) => ExplorePage()),
+      GoRoute(path: searchPage, builder: (context, state) => SearchPage()),
     ],
   );
 }
