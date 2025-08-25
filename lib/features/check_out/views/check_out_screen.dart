@@ -41,6 +41,7 @@ class CheckoutScreen extends StatelessWidget {
       create: (_) => CheckoutCubit(courses),
       child: Scaffold(
         appBar: AppBar(
+          iconTheme: Theme.of(context).iconTheme,
           title: Text(
             "Checkout",
             style: TextStyle(
@@ -51,43 +52,45 @@ class CheckoutScreen extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                "Your Courses:",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 10),
-
-              Expanded(
-                child: BlocBuilder<CheckoutCubit, CheckoutState>(
-                  builder: (context, state) {
-                    return ListView.separated(
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(height: 10),
-                      itemCount: state.courses.length,
-                      itemBuilder: (context, index) => CartCourseCard(
-                        id: courses[index].id,
-                        title: courses[index].title,
-                        details: courses[index].details,
-                        imageUrl: courses[index].imageUrl,
-                        price: courses[index].price.toString(),
-                      ),
-                    );
-                  },
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Your Courses:",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-              ),
-              const SizedBox(height: 10),
-              CouponField(controller: couponController),
-              const SizedBox(height: 20),
-              const TotalPriceWidget(),
-              const SizedBox(height: 20),
-              const CheckoutButton(),
-              const SizedBox(height: 20),
-            ],
+                const SizedBox(height: 10),
+
+                Expanded(
+                  child: BlocBuilder<CheckoutCubit, CheckoutState>(
+                    builder: (context, state) {
+                      return ListView.separated(
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(height: 10),
+                        itemCount: state.courses.length,
+                        itemBuilder: (context, index) => CartCourseCard(
+                          id: courses[index].id,
+                          title: courses[index].title,
+                          details: courses[index].details,
+                          imageUrl: courses[index].imageUrl,
+                          price: courses[index].price.toString(),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                const SizedBox(height: 10),
+                CouponField(controller: couponController),
+                const SizedBox(height: 20),
+                const TotalPriceWidget(),
+                const SizedBox(height: 20),
+                const CheckoutButton(),
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),

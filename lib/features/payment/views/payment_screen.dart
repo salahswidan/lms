@@ -30,6 +30,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
           return Scaffold(
             appBar: AppBar(
+              iconTheme: Theme.of(context).iconTheme,
               title: Text(
                 "Payment",
                 style: TextStyle(
@@ -41,50 +42,52 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
               centerTitle: true,
             ),
-            body: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Form(
-                key: cubit.formKey,
-                child: Column(
-                  children: [
-                    const Text(
-                      "Select Payment Method",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-
-                    const PaymentMethodSelector(),
-                    const SizedBox(height: 20),
-
-                    if (cubit.selectedMethod == "Mobile Wallet")
-                      const WalletForm(),
-                    if (cubit.selectedMethod == "Visa" ||
-                        cubit.selectedMethod == "MasterCard")
-                      const CardForm(),
-
-                    const Spacer(),
-
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
-                            cubit.selectedMethod == null
-                                ? Colors.grey
-                                : Colors.blue,
-                          ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Form(
+                  key: cubit.formKey,
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Select Payment Method",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
                         ),
-                        onPressed: cubit.selectedMethod == null
-                            ? null
-                            : () => cubit.pay(),
-                        child: const Text("Pay Now"),
                       ),
-                    ),
-                    const SizedBox(height: 20),
-                  ],
+                      const SizedBox(height: 20),
+
+                      const PaymentMethodSelector(),
+                      const SizedBox(height: 20),
+
+                      if (cubit.selectedMethod == "Mobile Wallet")
+                        const WalletForm(),
+                      if (cubit.selectedMethod == "Visa" ||
+                          cubit.selectedMethod == "MasterCard")
+                        const CardForm(),
+
+                      const Spacer(),
+
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                              cubit.selectedMethod == null
+                                  ? Colors.grey
+                                  : Colors.blue,
+                            ),
+                          ),
+                          onPressed: cubit.selectedMethod == null
+                              ? null
+                              : () => cubit.pay(),
+                          child: const Text("Pay Now"),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                    ],
+                  ),
                 ),
               ),
             ),
